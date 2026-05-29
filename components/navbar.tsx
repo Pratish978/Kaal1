@@ -5,7 +5,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { useRouter, usePathname } from "next/navigation"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
-import { ArrowLeft, LogOut, User, Sparkles, Menu, X } from "lucide-react"
+import { ArrowLeft, LogOut, User, Sparkles, Menu, X, History } from "lucide-react"
 import { useAuth } from "@/contexts/auth-context"
 
 import {
@@ -127,6 +127,14 @@ export function Navbar({ showBackButton = false, customBackAction, forceLogo = f
                   </Link>
                 </DropdownMenuItem>
 
+                {/* HISTORY */}
+                <DropdownMenuItem asChild className="cursor-pointer rounded-lg">
+                  <Link href="/history" className="flex items-center text-[#6B5E4C] font-medium hover:text-black">
+                    <History className="h-4 w-4 mr-2" />
+                    History
+                  </Link>
+                </DropdownMenuItem>
+
                 <DropdownMenuSeparator className="bg-gray-300 my-2" />
 
                 {/* FEATURES */}
@@ -214,6 +222,9 @@ export function Navbar({ showBackButton = false, customBackAction, forceLogo = f
                   </Link>
                   <Link href="/events" onClick={() => setIsMobileOpen(false)} className="text-xl text-gray-700">
                     Events
+                  </Link>
+                  <Link href="/history" onClick={() => setIsMobileOpen(false)} className="text-xl text-gray-700">
+                    History
                   </Link>
                   <Link href="/profile" onClick={() => setIsMobileOpen(false)} className="text-xl text-gray-700">
                     Profile

@@ -13,7 +13,7 @@ const meditationData: Record<
 > = {
   "breathing-calm": {
     title: "Breathing Calm",
-    duration: 600,
+    duration: 800 ,
     image: "/meditate.png",
     sound: "/sounds/breathing.mp3",
   },

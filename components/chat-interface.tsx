@@ -149,7 +149,7 @@ export function ChatInterface({ onBack }: ChatInterfaceProps) {
       if (!sessionId) {
         sessionId = crypto.randomUUID()
         localStorage.setItem("kaal_session", sessionId)
-      }
+      }//Remove from local storage 
 
       // Using the mapped environment key for client token setup if required by your chat api
       const apiKey = process.env.NEXT_PUBLIC_DEEPGRAM_API_KEY || process.env.NEXT_PUBLIC_CHAT_KEY || ""
@@ -237,7 +237,7 @@ export function ChatInterface({ onBack }: ChatInterfaceProps) {
         {isWaitingResponse && (
           <div className="flex flex-col items-center gap-2 mb-4 self-center">
             <img
-              src="/kaal-logo-1.png"
+              src="/logo.png"
               alt="Loading"
               className="w-5 h-5 animate-spin opacity-30"
               style={{ animationDuration: "3s" }}
