@@ -108,7 +108,15 @@ export function ChatInterface({ onBack }: ChatInterfaceProps) {
       }
       mediaRecorder.onstop = async () => {
         const blob = new Blob(audioChunksRef.current, { type: "audio/webm" })
-        const response = await fetch("/api/stt", { method: "POST", body: blob })
+        
+        // Proxying the request securely to your API route which handles the DEEPGRAM_API_KEY
+        const response = await fetch("/api/stt", { 
+          method: "POST", 
+          body: blob,
+          headers: {
+            "Content-Type": "audio/webm"
+          }
+        })
         const data = await response.json()
         if (data.text) setInput(data.text)
       }
@@ -143,8 +151,8 @@ export function ChatInterface({ onBack }: ChatInterfaceProps) {
         localStorage.setItem("kaal_session", sessionId)
       }
 
-      // Read key directly from client environment securely or proxy through route
-      const apiKey = process.env.NEXT_PUBLIC_CHAT_KEY || ""
+      // Using the mapped environment key for client token setup if required by your chat api
+      const apiKey = process.env.NEXT_PUBLIC_DEEPGRAM_API_KEY || process.env.NEXT_PUBLIC_CHAT_KEY || ""
 
       const response = await fetch("/api/chat", {
         method: "POST",
