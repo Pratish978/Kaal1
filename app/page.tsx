@@ -19,7 +19,7 @@ export default function HomePage() {
       <Navbar />
 
       {/* Hero Section — second file's UI */}
-      <section className="grow flex justify-center px-4 py-10 md:py-12">
+      <section className="grow flex justify-center px-4 py-30 md:py-12">
         <div className="bg-[#F6F2ED] max-w-2xl w-full rounded-[30px] md:rounded-[40px] p-6 md:p-12 text-center shadow-inner relative overflow-hidden h-fit">
 
           <h1 className="text-3xl md:text-4xl font-serif text-gray-800 mt-10 md:mt-12 mb-6 md:mb-10 px-2 leading-tight">
